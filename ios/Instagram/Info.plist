@@ -32,6 +32,17 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	
+	<!-- gallery permission -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow me to breach ur privacy and access your gallery just kidding allow this to update your avatar</string>
+
+	<!-- camera and microphone permission -->
+	<key>NSCameraUsageDescription</key>
+	<string>Allow $(PRODUCT_NAME) to use the camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow $(PRODUCT_NAME) to use the microphone</string>
+
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

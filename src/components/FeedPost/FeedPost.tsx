@@ -17,6 +17,8 @@ import DoublePressable from '../DoublePressable';
 import Carousel from '../Carousel';
 import VideoPlayer from '../VideoPlayer';
 
+import {useNavigation} from '@react-navigation/native';
+
 interface IFeedProps {
   post: IPost;
   isVisible: boolean;
@@ -27,6 +29,8 @@ interface IFeedProps {
 const FeedPost = ({post, isVisible}: IFeedProps) => {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
+  const navigation = useNavigation();
 
   const toggleDescriptionExpanded = () => {
     setIsDescriptionExpanded(prev => !prev);
@@ -56,13 +60,20 @@ const FeedPost = ({post, isVisible}: IFeedProps) => {
     );
   }
 
+  const navigateToUser = () => {
+    navigation.navigate('UserProfile');
+    // navigation.navigate('UserProfile', {user: post.user.id});
+  };
+
   return (
     <View style={styles.post}>
       {/* post header */}
       <View style={styles.header}>
         <Image source={dummyImage} style={styles.avatar} />
         {/* source={post.user.image}  */}
-        <Text style={styles.userName}>{post.user.username}</Text>
+        <Text style={styles.userName} onPress={navigateToUser}>
+          {post.user.username}
+        </Text>
         <Entypo
           name="dots-three-horizontal"
           size={16}

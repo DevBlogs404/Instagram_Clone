@@ -1,7 +1,7 @@
 import {View, Text, Image, StyleSheet, TextInput} from 'react-native';
 import dummyImage from '../../assets/images/dummy.png';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Size, Weight} from '../../themes/fonts';
+import Colors from '../../themes/colors';
 import {useEffect, useState} from 'react';
 
 const Input = () => {

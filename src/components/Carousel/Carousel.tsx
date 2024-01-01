@@ -8,7 +8,7 @@ import {
   ViewabilityConfig,
   ViewToken,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../../themes/colors';
 import DoublePressable from '../DoublePressable';
 
 interface ICarousel {

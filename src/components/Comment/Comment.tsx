@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../../themes/colors';
 import {Weight} from '../../themes/fonts';
 import {IComment} from '../../types/models';
 
