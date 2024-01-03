@@ -8,11 +8,20 @@ import FeedGridView from '../../components/FeedGridView';
 
 import {useNavigation, useRoute} from '@react-navigation/native';
 
-const ProfileScreen = () => {
-  // const route = useRoute();
-  // const navigation = useNavigation();
+import {
+  MyProfileBottomTabNavigationProp,
+  UserProfileNavigationProp,
+  MyProfileBottomTabsRouteProp,
+  UserProfileRouteProp,
+} from '../../navigation/types';
 
-  // const {userId} = route.params;
+const ProfileScreen = () => {
+  const route = useRoute<MyProfileBottomTabsRouteProp | UserProfileRouteProp>();
+  const navigation = useNavigation<
+    MyProfileBottomTabNavigationProp | UserProfileNavigationProp
+  >();
+
+  const userId = route.params?.userId;
 
   // navigation.setOptions({title: userId});
 

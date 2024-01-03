@@ -18,6 +18,7 @@ import Carousel from '../Carousel';
 import VideoPlayer from '../VideoPlayer';
 
 import {useNavigation} from '@react-navigation/native';
+import {FeedNavigationProps} from '../../navigation/types';
 
 interface IFeedProps {
   post: IPost;
@@ -30,7 +31,7 @@ const FeedPost = ({post, isVisible}: IFeedProps) => {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<FeedNavigationProps>();
 
   const toggleDescriptionExpanded = () => {
     setIsDescriptionExpanded(prev => !prev);
@@ -61,7 +62,12 @@ const FeedPost = ({post, isVisible}: IFeedProps) => {
   }
 
   const navigateToUser = () => {
-    navigation.navigate('UserProfile');
+    navigation.navigate('UserProfile', {userId: post.user.id});
+    // navigation.navigate('UserProfile', {user: post.user.id});
+  };
+
+  const navigateToComments = () => {
+    navigation.navigate('Comments', {postId: post.id});
     // navigation.navigate('UserProfile', {user: post.user.id});
   };
 
@@ -136,7 +142,9 @@ const FeedPost = ({post, isVisible}: IFeedProps) => {
         </Text>
 
         {/* comments */}
-        <Text>View all {post.nofComments} comments</Text>
+        <Text onPress={navigateToComments}>
+          View all {post.nofComments} comments
+        </Text>
         {post.comments?.map(comment => {
           return (
             <Comment

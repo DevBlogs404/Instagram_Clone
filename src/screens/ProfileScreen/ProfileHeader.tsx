@@ -4,7 +4,16 @@ import Colors from '../../themes/colors';
 import {Size, Weight} from '../../themes/fonts';
 import Button from '../../components/Button';
 
+import {useNavigation} from '@react-navigation/native';
+import {ProfileNavigationProps} from '../../navigation/types';
+
 const ProfileHeader = () => {
+  const navigation = useNavigation<ProfileNavigationProps>();
+
+  const navigateToEditProfile = () => {
+    navigation.navigate('EditProfile');
+  };
+
   return (
     <View style={styles.root}>
       <View style={styles.headerRow}>
@@ -30,10 +39,7 @@ const ProfileHeader = () => {
       <Text>{userData.bio}</Text>
 
       <View style={styles.buttonContainer}>
-        <Button
-          text="Edit Profile"
-          onPress={() => console.log('work on progress')}
-        />
+        <Button text="Edit Profile" onPress={navigateToEditProfile} />
         <Button
           text="Share Profile"
           onPress={() => console.log('work on progress')}
