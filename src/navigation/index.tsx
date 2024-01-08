@@ -1,4 +1,4 @@
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, LinkingOptions} from '@react-navigation/native';
 import CommentsScreen from '../screens/CommentsScreen/CommentsScreen';
 import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import PostUploadScreen from '../screens/PostUploadScreen/PostUploadScreen';
@@ -12,9 +12,29 @@ import {RootNavigationType} from './types';
 
 const Stack = createNativeStackNavigator<RootNavigationType>();
 
+const linking: LinkingOptions<RootNavigationType> = {
+  prefixes: ['simpleapp://', 'https://simpleapp.com'],
+  config: {
+    initialRouteName: 'Home',
+    screens: {
+      Comments: 'comments',
+      Home: {
+        screens: {
+          HomeStack: {
+            initialRouteName: 'Feed',
+            screens: {
+              UserProfile: 'user/:userId',
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 const CustomNavigation = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"

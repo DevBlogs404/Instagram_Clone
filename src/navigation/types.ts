@@ -15,6 +15,11 @@ export type BottomTabNavigationTypes = {
   MyProfile: undefined;
 };
 
+export type SearchTabNavigationTypes = {
+  Users: undefined;
+  Posts: undefined;
+};
+
 export type HomeSTackNavigationTypes = {
   Feed: undefined;
   UserProfile: {userId: string};

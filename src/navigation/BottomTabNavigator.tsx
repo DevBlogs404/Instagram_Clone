@@ -11,6 +11,7 @@ import HomeStackNavigator from './HomeStackNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
 
 import {BottomTabNavigationTypes} from './types';
+import SearchTabNavigator from './SearchTabNavigator';
 
 const Tabs = createBottomTabNavigator<BottomTabNavigationTypes>();
 
@@ -30,8 +31,9 @@ const BottomTabNavigator = () => {
       />
       <Tabs.Screen
         name="Seacrh"
-        component={ProfileScreen}
+        component={SearchTabNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <MaterialIcons name="search" color={color} size={size} />
           ),
